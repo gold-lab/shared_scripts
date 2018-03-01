@@ -24,9 +24,7 @@
 #####    - Intergenic-distance of nearest points
 #####    - Genic-distance of promoters: negative=lncRNA upstream of protcod, positive= lncRNA downstream of protcod
 * LncRNA types: 
-
 #(0) unstranded, intergenic
-
 #(1) samestrand, lincRNA upstream  
 #(2) divergent  
 #(3) samestrand, protcod upstream  
