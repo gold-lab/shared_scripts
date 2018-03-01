@@ -1,4 +1,3 @@
-README:
 
 # lncRNA Annotator
 ## A script to perform genomic positional annotation of lncRNAs
@@ -22,24 +21,23 @@ README:
 * Installation of BEDTOOLS is required for executing the script
 * LncRNAs are treated at transcript level, protein-coding genes are treated at gene level.
 * Lncrna-protcod distance is reported differently for intergenic or genic lncRNAs:
-##### **Intergenic-distance of nearest points
-##### **Genic-distance of promoters: negative=lncRNA upstream of protcod, positive= lncRNA downstream of protcod
+#####    Intergenic-distance of nearest points
+#####    Genic-distance of promoters: negative=lncRNA upstream of protcod, positive= lncRNA downstream of protcod
 * LncRNA types: 
-##
-#(0) unstranded, intergenic
-#(1) samestrand, lincRNA upstream  
-#(2) divergent  
-#(3) samestrand, protcod upstream  
-#(4) convergent  
-#(5) intronic_AS  
-#(6) intronic_SS  
-#(7) exonic_AS  
-#(8) exonic_SS
-#(9) unstranded, genic
+
+##### (0) unstranded, intergenic
+##### (1) samestrand, lincRNA upstream  
+##### (2) divergent  
+##### (3) samestrand, protcod upstream  
+##### (4) convergent  
+##### (5) intronic_AS  
+##### (6) intronic_SS  
+##### (7) exonic_AS  
+##### (8) exonic_SS
+##### (9) unstranded, genic
 #### In cases where lncRNA can have two or more types, the higher-numbered type gets chosen.
 #### There is no minimum window size around protein coding genes.
-
+###
 #### Note: lncRNA annotation must contain transcripts and exons, entire annotation must contain genes. Other features will be discarded.
-
 #### Note: if you need to create the lncRNA subannotation gtf file from the total file, use something like this command:
 ##### cat gencode20_havana.gtf | awk '$14!~/protein|pseudo|TR_gene|IG_gene/' > gencode20_havana.lncRNA.gtf
