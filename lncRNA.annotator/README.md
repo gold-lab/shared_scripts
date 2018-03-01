@@ -26,6 +26,7 @@
 * LncRNA types: 
 
 #(0) unstranded, intergenic
+
 #(1) samestrand, lincRNA upstream  
 #(2) divergent  
 #(3) samestrand, protcod upstream  
