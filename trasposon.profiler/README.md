@@ -1,6 +1,5 @@
 # Transposon Profiler
-## A program to annotate Transposable and Repeat Elements in LncRNA
-#
+# A program to annotate Transposable and Repeat Elements in LncRNA
 ##### Version 17
 ##### Rory Johnson 
 #
