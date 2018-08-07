@@ -1,21 +1,21 @@
 #!/bin/bash
 
 ######### BED coordinates to FANTOM peaks ###############
-#					                                          		#
+#							#
 # Uses input bed file with TSS coordinates to check for	#
-# closest and highest FANTOM peak. 		                	#
-# If no peak is found then original coordinates in	    #
-# input bed are kept.			                           		#
-# Path to FANTOM faile is required.		                	#
-#							                                          #
-# # Dependencies					                              #
-#    -bedtools 2.26.0					                          #
-#    -python						                                #
-# 			                                        				#
-# # How to use:						                              #
-#    ./bed_TSS_to_FANTOM.sh -i test_files/input.bed \	  #
-#    -f test_files/mm9_to_mm10_liftover.bed		          #
-#							                                          #
+# closest and highest FANTOM peak. 			#
+# If no peak is found then original coordinates in	#
+# input bed are kept.					#
+# Path to FANTOM faile is required.			#
+#							#
+# # Dependencies					#
+#    -bedtools 2.26.0					#
+#    -python						#
+#							#
+# # How to use:						#
+#    ./bed_TSS_to_FANTOM.sh -i test_files/input.bed \	#
+#    -f test_files/mm9_to_mm10_liftover.bed		#
+#							#
 #########################################################
 
 ## v2
@@ -82,7 +82,7 @@ mkdir -p tmp
 # In cases of tie in clossenes to FANTOM peaks, highest scored peak is selected.
 range=$RANGE
 sortBed -i $INFILE > tmp/sorted.bed
-closestBed -s -d -k 5 -a tmp/sorted.bed -b $FANTOM | awk -v x=$range '{ if ($NF<=x) {OFS="\t"; print $1,$13,$14,$4,$11,$6} else {OFS="\t"; print $1,$2,$3,$4,-1,$6}}' > tmp/intersect.bed
+closestBed -s -d -k 100 -a tmp/sorted.bed -b $FANTOM | awk -v x=$range '{ if ($NF<=x) {OFS="\t"; print $1,$13,$14,$4,$11,$6} else {OFS="\t"; print $1,$2,$3,$4,-1,$6}}' > tmp/intersect.bed
 python /data/projects/p283_rna_and_disease/scripts/bed_TSS_to_FANTOM/selectFANTOMpeak.py tmp/intersect.bed
 
 rm -R tmp
